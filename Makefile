@@ -1,8 +1,8 @@
+.PHONY: help dev-apply prod-apply dev-destroy prod-destroy
+# Default target
+.DEFAULT_GOAL := help
 help:
-	@echo "Available targets:"
-	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
-		| sort \
-		| awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST)
 dev-apply:
 	rm -f .terraform/terraform.tfstate
 	terraform init -backend-config=env-dev/state.tfvars
