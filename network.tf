@@ -11,7 +11,7 @@ resource "aws_security_group" "ex2" {
     }
 
     dynamic "ingress" {
-        for_each        = var.components.value["ports"]
+        for_each        = each.value["ports"]
 
         content {
           from_port     = ingress.value
