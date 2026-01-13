@@ -1,4 +1,3 @@
-resource "null_resource" "test" {}
 resource "aws_instance" "instance" {
   for_each                = var.components
 
